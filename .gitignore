@@ -1,0 +1,32 @@
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+service-account-key.json
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# Misc
+.cache/

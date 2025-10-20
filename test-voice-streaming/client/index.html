@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>🎤 Voice Chat</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎤 Голосовой чат</h1>
+            <div class="status" id="status">Подключение...</div>
+
+            <div class="mode-selector">
+                <label>Режим:</label>
+                <div class="mode-buttons">
+                    <label class="mode-option">
+                        <input type="radio" name="mode" value="push-to-talk" checked>
+                        <span>Push-to-Talk</span>
+                    </label>
+                    <label class="mode-option">
+                        <input type="radio" name="mode" value="continuous">
+                        <span>Continuous (Auto)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mic-selector">
+                <label for="microphoneSelect">🎙️ Микрофон:</label>
+                <select id="microphoneSelect">
+                    <option value="">Загрузка...</option>
+                </select>
+            </div>
+            <div class="mic-info" id="micInfo"></div>
+        </header>
+
+        <div class="chat-messages" id="chatMessages">
+            <!-- Сообщения будут добавляться сюда -->
+        </div>
+
+        <div class="partial-text" id="partialText"></div>
+
+        <div class="controls">
+            <div class="volume-indicator">
+                <div class="volume-label">Уровень звука:</div>
+                <div class="volume-bar-container">
+                    <div class="volume-bar" id="volumeBar"></div>
+                </div>
+            </div>
+
+            <button class="mic-button" id="micButton">
+                <span class="mic-icon">🎤</span>
+                <span class="mic-text">Нажми и говори</span>
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
