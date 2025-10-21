@@ -47,6 +47,50 @@
    - Дублирующийся код → предложить рефакторинг
    - НЕ делать рефакторинг без явного согласия пользователя
 
+### 5. Quality Check
+**Обязательно перед коммитом:**
+- Запустить `npm run typecheck` — проверка TypeScript ошибок
+- Запустить `npm run lint` (где доступно) — проверка ESLint ошибок
+- Исправить ВСЕ ошибки
+
+### 6. Commit Proposal
+Claude предлагает commit message по стандарту.
+
+### 7. Code Review & Deploy
+Пользователь ревьюит код, коммитит изменения вручную, тестирует в соответствующем окружении.
+
+## Стандарт коммитов
+
+**Формат:** `<type>: <детальное описание с конкретикой>`
+
+### Типы коммитов
+
+**Для всех репозиториев:**
+- `feature` — новая функциональность или фича
+- `fix` — исправление багов
+- `refactor` — рефакторинг кода без изменения поведения
+- `chore` — техническая работа (dependencies, конфигурация, build scripts)
+- `perf` — оптимизация производительности
+- `docs` — только документация
+
+**Специфичные типы:**
+- `migration` — миграции БД и операции с данными (только playtennis-supabase)
+- `style` — UI/визуальные изменения, НЕ code style (playtennis-app, playtennis.ru)
+- `function` — новые функции/фичи в backend (альтернатива для playtennis-supabase)
+
+### Примеры
+
+```
+feature: add match creation flow with club selection and NTRP filtering
+fix: resolve keyboard dismissal issue on phone input screen
+refactor: extract shared button styles into Button component
+chore: update expo-router to v4.1.2
+migration: add 2 tennis clubs (Balashiha Tennis Center, Tennis-self)
+migration: delete 15 duplicate clubs by coordinates
+style: implement design system with realistic shadows and depth
+```
+
+
 ### При работе с кодом:
 
 **✅ Делать:**
