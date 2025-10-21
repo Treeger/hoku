@@ -8,7 +8,7 @@
 
 | Что просит пользователь | Тип | Где создавать | Файлы |
 |------------------------|-----|---------------|-------|
-| "Добавь страницу /clubs" | Page | `pages/clubs-list/ui/` + `app/(routes)/clubs/` | `ClubsListPage.tsx`, `page.tsx` (wrapper) |
+| "Добавь страницу /clubs" | Page | `views/clubs-list/ui/` + `app/(routes)/clubs/` | `ClubsListPage.tsx`, `page.tsx` (wrapper) |
 | "Добавь кнопку избранного" | Feature | `features/add-club-to-favorites/ui/` + `api/` | `FavoriteButton.tsx`, `add-favorite.ts` (action) |
 | "Покажи карточку клуба" | Entity UI | `entities/club/ui/` | `ClubCard.tsx` |
 | "Получи клубы из БД" | Entity API | `entities/club/api/` | `service.ts`, `actions.ts` |
@@ -24,6 +24,25 @@
 ## 2. Правила для Claude Code
 
 > **ВАЖНО:** Перед созданием любого кода - проверить на дубликаты и спросить пользователя
+
+### ⚠️ АДАПТАЦИЯ FSD ДЛЯ NEXT.JS APP ROUTER
+
+**КРИТИЧЕСКИ ВАЖНО:** Слой `pages/` переименован в `views/` чтобы избежать конфликта с Next.js Pages Router.
+
+**Правильные импорты страниц:**
+```typescript
+// ✅ ПРАВИЛЬНО (прямой импорт из ui/)
+import { HomePage } from "@/views/home/ui/HomePage";
+```
+
+**Public API (`index.ts`):**
+- ✅ `widgets/{widget-name}/index.ts`
+- ✅ `features/{feature-name}/index.ts`
+- ✅ `entities/{entity-name}/index.ts`
+- ✅ `shared/{category}/{name}/index.ts`
+- ✅ `views/{view-name}/index.ts` — теперь разрешено (переименовали pages → views)
+
+---
 
 ### Перед созданием компонента/функции:
 
@@ -127,9 +146,9 @@ project/
 ├── app/                              # Next.js App Router
 │   ├── (routes)/                     # Группа роутов
 │   │   ├── clubs/
-│   │   │   ├── page.tsx              # Wrapper → импортирует pages/clubs-list
+│   │   │   ├── page.tsx              # Wrapper → импортирует views/clubs-list
 │   │   │   ├── [id]/
-│   │   │   │   └── page.tsx          # Wrapper → импортирует pages/club-detail
+│   │   │   │   └── page.tsx          # Wrapper → импортирует views/club-detail
 │   │   │   ├── loading.tsx
 │   │   │   └── error.tsx
 │   │   └── profile/
@@ -141,7 +160,7 @@ project/
 │   │   └── globals.css
 │   └── layout.tsx
 │
-├── pages/                            # FSD: Страницы (композиция виджетов)
+├── views/                            # FSD: Страницы (композиция виджетов)
 │   ├── clubs-list/
 │   │   ├── ui/
 │   │   │   └── ClubsListPage.tsx
@@ -251,10 +270,10 @@ project/
 **Условие:** Пользователь просит создать новую страницу/роут
 
 **Что создавать:**
-1. `pages/{page-name}/ui/{PageName}Page.tsx` - логика и композиция
+1. `views/{page-name}/ui/{PageName}Page.tsx` - логика и композиция
 2. `app/(routes)/{route}/page.tsx` - Next.js wrapper:
    ```typescript
-   import { ClubsListPage } from '@/pages/clubs-list'
+   import { ClubsListPage } from '@/views/clubs-list'
    export default ClubsListPage
    ```
 3. `app/(routes)/{route}/loading.tsx` - loading UI
@@ -357,7 +376,7 @@ project/
 **Создать файлы:**
 
 ```typescript
-// pages/clubs-list/ui/ClubsListPage.tsx
+// views/clubs-list/ui/ClubsListPage.tsx
 import { ClubList } from '@/widgets/club-list'
 
 export function ClubsListPage() {
@@ -372,7 +391,7 @@ export function ClubsListPage() {
 
 ```typescript
 // app/(routes)/clubs/page.tsx
-import { ClubsListPage } from '@/pages/clubs-list'
+import { ClubsListPage } from '@/views/clubs-list'
 
 export const metadata = {
   title: 'Клубы',
@@ -974,8 +993,8 @@ shared (Layer 6)
 
 | Кто импортирует | Может импортировать из |
 |----------------|----------------------|
-| `app/` | `pages/`, `providers/`, `shared/` |
-| `pages/` | `widgets/`, `features/`, `entities/`, `shared/` |
+| `app/` | `views/`, `providers/`, `shared/` |
+| `views/` | `widgets/`, `features/`, `entities/`, `shared/` |
 | `widgets/` | `features/`, `entities/`, `shared/` |
 | `features/` | `entities/`, `shared/` |
 | `entities/` | `shared/` |
@@ -994,14 +1013,14 @@ import { FavoriteButton } from '@/features/add-favorite'  // WRONG!
 
 // ❌ widgets не может импортировать pages
 // widgets/club-list/ui/ClubList.tsx
-import { ClubsPage } from '@/pages/clubs-list'  // WRONG!
+import { ClubsPage } from '@/views/clubs-list'  // WRONG!
 ```
 
 ### ✅ Правильные импорты
 
 ```typescript
 // ✅ pages импортирует widgets и features
-// pages/clubs-list/ui/ClubsListPage.tsx
+// views/clubs-list/ui/ClubsListPage.tsx
 import { ClubList } from '@/widgets/club-list'
 import { SearchInput } from '@/features/search-clubs'
 
@@ -1289,7 +1308,7 @@ export function trackEvent(event: string, data?: object) { }
 **4. Очень простые проекты**
 Если проект < 10 страниц, можно упростить структуру:
 - Убрать `widgets/` → использовать только `features/` и `entities/`
-- Убрать `pages/` → писать страницы прямо в `app/`
+- Убрать `views/` → писать страницы прямо в `app/`
 
 ---
 

@@ -1,10 +1,15 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./widgets/**/*.{js,ts,jsx,tsx,mdx}",
+    "./features/**/*.{js,ts,jsx,tsx,mdx}",
+    "./entities/**/*.{js,ts,jsx,tsx,mdx}",
+    "./shared/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -21,6 +26,16 @@ export default {
     },
     extend: {
       colors: {
+        /* New design tokens */
+        "base-bg": "hsl(var(--base-bg))",
+        "surface-1": "hsl(var(--surface-1))",
+        "surface-2": "hsl(var(--surface-2))",
+        "surface-3": "hsl(var(--surface-3))",
+        "text-primary": "hsl(var(--text-primary))",
+        "text-secondary": "hsl(var(--text-secondary))",
+        "hero-bg-tint": "hsl(var(--hero-bg-tint))",
+
+        /* Legacy tokens (for compatibility with shadcn/ui) */
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -67,7 +82,27 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        subtle: "var(--shadow-small)",
+        standard: "var(--shadow-medium)",
+        elevated: "var(--shadow-large)",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".shadow-subtle": {
+          boxShadow: "var(--shadow-small)",
+        },
+        ".shadow-standard": {
+          boxShadow: "var(--shadow-medium)",
+        },
+        ".shadow-elevated": {
+          boxShadow: "var(--shadow-large)",
+        },
+      });
+    }),
+  ],
 } satisfies Config;

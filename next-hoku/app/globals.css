@@ -4,57 +4,56 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Base surfaces */
+    --base-bg: 249 250 251;
+    --surface-1: 0 0% 100%;
+    --surface-2: 241 243 245;
+    --surface-3: 229 231 235;
+
+    /* Text colors */
+    --text-primary: 17 24 39;
+    --text-secondary: 75 85 99;
+
+    /* Accent colors */
+    --accent: 44 100% 49%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Legacy tokens (for compatibility) */
+    --background: 249 250 251;
+    --foreground: 17 24 39;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 17 24 39;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --popover-foreground: 17 24 39;
+    --primary: 17 24 39;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 241 243 245;
+    --secondary-foreground: 17 24 39;
+    --muted: 241 243 245;
+    --muted-foreground: 75 85 99;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 44 100% 49%;
+
+    /* Chart colors */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* Border radius */
     --radius: 0.5rem;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+
+    /* Shadows (two-layer realistic) */
+    --shadow-small: 0 0.5px 0.5px rgba(0, 0, 0, 0.05), 0 -0.5px 0.5px rgba(255, 255, 255, 0.6) inset;
+    --shadow-medium: 0 1px 2px rgba(0, 0, 0, 0.08), 0 -1px 1px rgba(255, 255, 255, 0.7) inset;
+    --shadow-large: 0 4px 12px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(255, 255, 255, 0.8) inset;
+
+    /* Hero section tint (default: beauty) */
+    --hero-bg-tint: 253 236 235;
   }
 }
 
@@ -63,6 +62,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-base-bg text-text-primary;
+    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   }
 }
