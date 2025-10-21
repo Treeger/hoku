@@ -3,8 +3,8 @@
 import type { Segment } from "@/shared/config/design-tokens";
 import { getSegmentConfig } from "../model/segment-config";
 import { HeroIllustration } from "./HeroIllustration";
-import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { LandingSection } from "@/shared/ui/landing-section";
 
 type HeroSectionProps = {
   segment?: Segment;
@@ -16,16 +16,11 @@ type HeroSectionProps = {
 export function HeroSection({ segment = "beauty" }: HeroSectionProps) {
   const config = getSegmentConfig(segment);
 
-  // Устанавливаем CSS-переменную для фонового цвета
-  useEffect(() => {
-    document.documentElement.style.setProperty("--hero-bg-tint", config.color);
-  }, [config.color]);
-
   return (
-    <section
-      className="relative w-full min-h-[600px] flex items-center"
+    <LandingSection
+      className="relative"
       style={{
-        background: `hsl(var(--hero-bg-tint))`,
+        background: `hsl(${config.color})`,
       }}
     >
       <div className="container mx-auto px-4 py-16 lg:py-24">
@@ -57,6 +52,6 @@ export function HeroSection({ segment = "beauty" }: HeroSectionProps) {
           </div>
         </div>
       </div>
-    </section>
+    </LandingSection>
   );
 }

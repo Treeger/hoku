@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { showcaseItems } from "../model/data";
 import { ShowcaseCard } from "./ShowcaseCard";
+import { LandingSection } from "@/shared/ui/landing-section";
 
 export function LandingShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="w-full py-20 bg-surface-3">
+    <LandingSection background="surface-3">
       <div className="container px-4 md:px-6">
         <div className="space-y-8">
           {/* Header */}
@@ -45,6 +46,6 @@ export function LandingShowcase() {
           )}
         </div>
       </div>
-    </section>
+    </LandingSection>
   );
 }

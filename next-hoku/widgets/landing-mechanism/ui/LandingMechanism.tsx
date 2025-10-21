@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { LandingSection } from "@/shared/ui/landing-section";
 
 const steps = [
   {
@@ -25,7 +26,7 @@ const steps = [
 
 export function LandingMechanism() {
   return (
-    <section className="w-full py-20 bg-surface-3">
+    <LandingSection background="surface-3">
       <div className="container px-4 md:px-6">
         <div className="space-y-12">
           {/* Header */}
@@ -62,6 +63,6 @@ export function LandingMechanism() {
           </div>
         </div>
       </div>
-    </section>
+    </LandingSection>
   );
 }

@@ -1,9 +1,10 @@
 import { testimonials } from "../model/data";
 import { TestimonialCard } from "./TestimonialCard";
+import { LandingSection } from "@/shared/ui/landing-section";
 
 export function LandingProof() {
   return (
-    <section className="w-full py-20 bg-surface-1">
+    <LandingSection background="surface-1">
       <div className="container px-4 md:px-6">
         <div className="space-y-12">
           {/* Header */}
@@ -24,6 +25,6 @@ export function LandingProof() {
           </div>
         </div>
       </div>
-    </section>
+    </LandingSection>
   );
 }
