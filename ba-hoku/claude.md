@@ -10,8 +10,8 @@
 Hoku - SaaS приложение для быстрой разработки стартапов.
 
 **Сервисы:**
-- **hoku-next** - Next.js 14 frontend (будет создан через задачу)
-- **hoku-supabase** - Supabase backend (будет создан через задачу)
+- **hoku-next** - Next.js frontend (будет создан через задачу)
+- **hoku-supabase** - Supabase backend, edge функции и миграции (будет создан через задачу)
 
 ## Tasks Location
 
@@ -162,11 +162,11 @@ created: 2025-10-21
 
 ## What to do
 
-Установить Next.js 14 с TypeScript для hoku-next сервиса.
+Установить Next.js  с TypeScript для hoku-next сервиса.
 
 ## Acceptance Criteria
 
-- [ ] Next.js 14 установлен
+- [ ] Next.js  установлен
 - [ ] TypeScript настроен
 - [ ] Dev server запускается на localhost:3000
 - [ ] Базовая структура папок создана
@@ -180,10 +180,10 @@ created: 2025-10-21
 ## Implementation Prompt
 
 ```
-Установи Next.js 14 с TypeScript:
+Установи Next.js  с TypeScript:
 
 Requirements:
-- Next.js 14 (App Router)
+- Next.js  (App Router)
 - TypeScript (strict mode)
 - Dev server должен запускаться
 - Создай базовую структуру: app/, components/, lib/
