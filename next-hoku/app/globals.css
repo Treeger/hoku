@@ -8,7 +8,7 @@
     --base-bg: 249 250 251;
     --surface-1: 0 0% 100%;
     --surface-2: 241 243 245;
-    --surface-3: 229 231 235;
+    --surface-3: 42 38% 93%;
 
     /* Text colors */
     --text-primary: 17 24 39;
@@ -16,7 +16,7 @@
 
     /* Accent colors */
     --accent: 44 100% 49%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 17 24 39;
 
     /* Legacy tokens (for compatibility) */
     --background: 249 250 251;
@@ -26,7 +26,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 17 24 39;
     --primary: 17 24 39;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 17 24 39;
     --secondary: 241 243 245;
     --secondary-foreground: 17 24 39;
     --muted: 241 243 245;
@@ -62,7 +62,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-base-bg text-text-primary;
+    @apply text-text-primary;
     font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    background-color: hsl(var(--surface-1));
   }
 }

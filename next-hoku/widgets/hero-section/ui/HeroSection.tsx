@@ -49,10 +49,7 @@ export function HeroSection({ segment = "beauty" }: HeroSectionProps) {
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white shadow-elevated transition-all duration-200 hover:scale-105"
-                style={{
-                  background: "linear-gradient(135deg, #FFD34E 0%, #FBBF24 100%)",
-                }}
+                className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-elevated transition-all duration-200 hover:scale-105"
               >
                 Послушать, как это работает
               </Button>

@@ -24,7 +24,7 @@ export function LandingPage() {
       <LandingProof />
 
       {/* 6. Form - превращает интерес в заявку */}
-      <section className="w-full py-20 bg-muted/50">
+      <section className="w-full py-20 bg-surface-3">
         <div className="container px-4 md:px-6">
           <div className="space-y-8">
             <div className="text-center space-y-4">

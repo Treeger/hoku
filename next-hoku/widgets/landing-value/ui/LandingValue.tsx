@@ -21,7 +21,7 @@ const benefits = [
 
 export function LandingValue() {
   return (
-    <section className="w-full py-20">
+    <section className="w-full py-20 bg-surface-1">
       <div className="container px-4 md:px-6">
         <div className="space-y-8">
           {/* Header */}

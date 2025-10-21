@@ -25,7 +25,7 @@ export const DESIGN_TOKENS = {
   baseBg: "249 250 251",        // #F9FAFB
   surface1: "0 0% 100%",        // #FFFFFF
   surface2: "241 243 245",      // #F1F3F5
-  surface3: "229 231 235",      // #E5E7EB
+  surface3: "42 38% 93%",       // #F1ECDF (warm beige)
   accent: "44 100% 49%",        // #F4B400
   textPrimary: "17 24 39",      // #111827
   textSecondary: "75 85 99",    // #4B5563
