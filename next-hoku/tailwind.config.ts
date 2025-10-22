@@ -87,6 +87,7 @@ export default {
         subtle: "var(--shadow-small)",
         standard: "var(--shadow-medium)",
         elevated: "var(--shadow-large)",
+        flat: "var(--shadow-flat)",
       },
     },
   },
@@ -102,6 +103,9 @@ export default {
         },
         ".shadow-elevated": {
           boxShadow: "var(--shadow-large)",
+        },
+        ".shadow-flat": {
+          boxShadow: "var(--shadow-flat)",
         },
       });
     }),
