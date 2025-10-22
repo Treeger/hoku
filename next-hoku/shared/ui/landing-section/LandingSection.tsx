@@ -10,9 +10,9 @@ type LandingSectionProps = {
   style?: React.CSSProperties;
 };
 
-const backgroundClasses: Record<Background, string> = {
-  "surface-1": "bg-surface-1",
-  "surface-3": "bg-surface-3",
+const backgroundStyles: Record<Background, string> = {
+  "surface-1": "bg-surface-1 text-text-primary",
+  "surface-3": "bg-surface-3 text-[hsl(var(--text-on-surface-3))]",
   none: "",
 };
 
@@ -21,6 +21,7 @@ const backgroundClasses: Record<Background, string> = {
  * - Устанавливает высоту секции в 100vh (min-h-screen)
  * - Центрирует контент вертикально
  * - Поддерживает различные фоновые цвета
+ * - Автоматически применяет правильный цвет текста для каждого фона
  */
 export function LandingSection({
   children,
@@ -32,7 +33,7 @@ export function LandingSection({
     <section
       className={cn(
         "w-full min-h-screen flex items-center",
-        backgroundClasses[background],
+        backgroundStyles[background],
         className
       )}
       style={style}

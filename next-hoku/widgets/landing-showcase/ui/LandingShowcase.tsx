@@ -4,26 +4,27 @@ import { useState } from "react";
 import { showcaseItems } from "../model/data";
 import { ShowcaseCard } from "./ShowcaseCard";
 import { LandingSection } from "@/shared/ui/landing-section";
+import { SectionHeading, SectionSubtitle } from "@/shared/ui/typography";
 
 export function LandingShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <LandingSection background="surface-3">
-      <div className="container px-4 md:px-6">
-        <div className="space-y-8">
+      <div className="container px-4 md:px-6 py-16">
+        <div className="space-y-12">
           {/* Header */}
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <SectionHeading>
               Посмотрите, как это работает
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground md:text-xl">
+            </SectionHeading>
+            <SectionSubtitle>
               Реальные примеры звонков и результатов работы AI секретаря
-            </p>
+            </SectionSubtitle>
           </div>
 
           {/* Showcase Cards */}
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <ShowcaseCard item={showcaseItems[activeIndex]} />
           </div>
 

@@ -2,6 +2,7 @@
 
 import type { ShowcaseItem } from "../model/types";
 import { Card } from "@/components/ui/card";
+import { CardHeading, BodyText } from "@/shared/ui/typography";
 
 type Props = {
   item: ShowcaseItem;
@@ -10,12 +11,14 @@ type Props = {
 export function ShowcaseCard({ item }: Props) {
   return (
     <Card className="p-6">
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-          <p className="text-muted-foreground">{item.description}</p>
-        </div>
+      {/* Header */}
+      <div className="mb-6">
+        <CardHeading className="mb-2">{item.title}</CardHeading>
+        <BodyText>{item.description}</BodyText>
+      </div>
 
+      {/* Horizontal Layout: Player Left, Image Right */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Audio Player */}
         <div className="space-y-2">
           <label className="text-sm font-medium">Послушайте разговор:</label>
@@ -30,9 +33,9 @@ export function ShowcaseCard({ item }: Props) {
           <label className="text-sm font-medium">Результат в календаре:</label>
           <div className="relative aspect-video rounded-lg overflow-hidden border bg-muted">
             {/* Placeholder for image - replace with actual <Image> when files are ready */}
-            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+            <BodyText className="absolute inset-0 flex items-center justify-center">
               Скриншот результата
-            </div>
+            </BodyText>
             {/*
             <Image
               src={item.resultImage}

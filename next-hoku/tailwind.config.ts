@@ -33,6 +33,7 @@ export default {
         "surface-3": "hsl(var(--surface-3))",
         "text-primary": "hsl(var(--text-primary))",
         "text-secondary": "hsl(var(--text-secondary))",
+        "text-subtitle": "hsl(var(--text-subtitle))",
         "hero-bg-tint": "hsl(var(--hero-bg-tint))",
 
         /* Legacy tokens (for compatibility with shadcn/ui) */

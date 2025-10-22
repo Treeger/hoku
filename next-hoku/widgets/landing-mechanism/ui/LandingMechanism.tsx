@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { LandingSection } from "@/shared/ui/landing-section";
+import { SectionHeading, SectionSubtitle, CardHeading, BodyText } from "@/shared/ui/typography";
 
 const steps = [
   {
@@ -31,12 +32,12 @@ export function LandingMechanism() {
         <div className="space-y-12">
           {/* Header */}
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <SectionHeading>
               Как это работает?
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground md:text-xl">
+            </SectionHeading>
+            <SectionSubtitle>
               Запуск занимает всего 15 минут
-            </p>
+            </SectionSubtitle>
           </div>
 
           {/* Steps */}
@@ -55,8 +56,8 @@ export function LandingMechanism() {
 
                 {/* Content */}
                 <div className="flex-1 space-y-2 pt-2">
-                  <h3 className="text-xl font-semibold">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
+                  <CardHeading>{step.title}</CardHeading>
+                  <BodyText>{step.description}</BodyText>
                 </div>
               </div>
             ))}
