@@ -138,11 +138,24 @@ wss.on('connection', (ws) => {
 
         // Получаем ответ от GPT
         const conversationHistory = getConversationHistory(sessionId);
-        const gptResponse = await getGPTResponse(
+        console.log('📜 История перед отправкой в GPT:', JSON.stringify(conversationHistory, null, 2));
+
+        let gptResponse = await getGPTResponse(
           conversationHistory,
           iamTokenManager,
           FOLDER_ID
         );
+
+        // Постобработка: удаляем метки диалога если GPT их сгенерировал
+        // Берем только первое предложение до переноса строки или до "Пользователь:"/"Ассистент:"
+        if (gptResponse.includes('\n') || gptResponse.includes('Пользователь:') || gptResponse.includes('Ассистент:')) {
+          console.log('⚠️ GPT сгенерировал диалог, обрезаем до первого предложения');
+          console.log('📝 Оригинальный ответ:', gptResponse);
+
+          // Берем только до первого переноса строки
+          gptResponse = gptResponse.split('\n')[0].trim();
+          console.log('✂️ Обрезанный ответ:', gptResponse);
+        }
 
         // Отправляем ответ GPT
         ws.send(JSON.stringify({
