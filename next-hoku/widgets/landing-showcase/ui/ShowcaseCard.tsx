@@ -30,7 +30,6 @@ export function ShowcaseCard({ item }: Props) {
 
         {/* Result Screenshot */}
         <div className="space-y-2">
-          <label className="text-sm font-medium">Результат в календаре:</label>
           <div className="relative aspect-video rounded-lg overflow-hidden border bg-muted">
             {/* Placeholder for image - replace with actual <Image> when files are ready */}
             <BodyText className="absolute inset-0 flex items-center justify-center">
