@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 
 export function ShowcaseCard() {
@@ -35,18 +36,12 @@ export function ShowcaseCard() {
 
         {/* Right Block: Calendar Screenshot (full height) */}
         <div className="relative min-h-[400px] md:min-h-full bg-muted">
-          {/* Placeholder for image - replace with actual <Image> when files are ready */}
-          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-            Скриншот календаря
-          </div>
-          {/*
           <Image
-            src="/images/calendar-booking-1.png"
+            src="/images/calendar.png"
             alt="Запись в календаре"
             fill
-            className="object-cover"
+            className="object-contain"
           />
-          */}
         </div>
       </div>
     </Card>
