@@ -15,7 +15,7 @@ export function LandingShowcase() {
               Посмотрите, как это работает
             </SectionHeading>
             <SectionSubtitle>
-              Реальные примеры звонков и результатов работы AI секретаря
+              Реальные звонки и результаты работы Hoku.
             </SectionSubtitle>
           </div>
 

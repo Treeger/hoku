@@ -12,18 +12,17 @@ export function ShowcaseCard() {
         <div className="flex flex-col justify-center p-8 md:p-12 space-y-8">
           {/* Main heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-            Послушайте, как Hoku разговаривает с клиентом
+            Реальный пример: звонок клиента в салон красоты
           </h2>
 
           {/* Scenario description */}
           <p className="text-lg text-muted-foreground">
-            Клиент звонит в салон красоты, чтобы записаться на маникюр.
+            Клиент хочет записаться на маникюр.
           </p>
 
           {/* Result description */}
           <p className="text-base leading-relaxed">
-            Hoku уточнила цель звонка, предложила свободное время и записала клиента в календарь. Всё — без участия администратора.
-          </p>
+            Hoku уточняет цель звонка, предлагает свободное время и записывает встречу в календарь — без участия администратора. </p>
 
           {/* Audio player */}
           <div className="space-y-3 pt-4">
