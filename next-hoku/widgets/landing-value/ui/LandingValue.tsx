@@ -46,7 +46,7 @@ export function LandingValue() {
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card key={index} className="px-6 py-12 flex flex-col items-center justify-center text-center bg-surface-3">
+                <Card key={index} className="px-6 py-12 flex flex-col items-center justify-center text-center bg-surface-3 hover:brightness-95 transition-all duration-200">
                   <div className="mb-3 bg-black rounded-lg p-1.5">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
