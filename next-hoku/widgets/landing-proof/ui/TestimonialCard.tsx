@@ -19,7 +19,7 @@ export function TestimonialCard({ testimonial }: Props) {
         </div>
 
         {/* Testimonial Text */}
-        <p className="text-muted-foreground italic">"{testimonial.text}"</p>
+        <p className="text-muted-foreground italic">&ldquo;{testimonial.text}&rdquo;</p>
 
         {/* Author */}
         <div className="border-t pt-4">

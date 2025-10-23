@@ -25,9 +25,8 @@ export function HeroSection({ segment = "beauty" }: HeroSectionProps) {
     >
       <div className="container mx-auto px-4 py-16 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Иллюстрация (на мобилке сверху) */}
           <div className="order-1 lg:order-2">
-            <HeroIllustration segment={segment} />
+            <HeroIllustration />
           </div>
 
           {/* Текстовый контент */}
