@@ -1,22 +1,27 @@
+import { Clock, MessageCircle, CalendarCheck, TrendingUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { LandingSection } from "@/shared/ui/landing-section";
 
 const benefits = [
   {
-    title: "Никогда не пропустите звонок",
-    description: "AI секретарь работает 24/7 и отвечает на все входящие звонки мгновенно",
+    icon: Clock,
+    title: "24/7",
+    description: "Отвечает на звонки днём и ночью — без перерывов, выходных и отпусков.",
   },
   {
-    title: "Экономьте время администратора",
-    description: "Автоматизируйте рутинные задачи записи и освободите время для важных дел",
+    icon: MessageCircle,
+    title: "Диалоги",
+    description: "Говорит естественно и вежливо, следуя вашему скрипту общения.",
   },
   {
-    title: "Увеличьте загрузку кортов",
-    description: "Больше записей = больше дохода. AI не теряет ни одного клиента",
+    icon: CalendarCheck,
+    title: "Записи",
+    description: "Создаёт встречи прямо в календаре — автоматически и без ошибок.",
   },
   {
-    title: "Всегда вежливо и профессионально",
-    description: "Одинаково высокий уровень обслуживания для каждого клиента",
+    icon: TrendingUp,
+    title: "Конверсия",
+    description: "Превращает больше звонков в клиентов за счёт мгновенной реакции.",
   },
 ];
 
@@ -24,25 +29,34 @@ export function LandingValue() {
   return (
     <LandingSection background="surface-1">
       <div className="container px-4 md:px-6">
-        <div className="space-y-8">
+        <div className="space-y-20">
           {/* Header */}
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Зачем это нужно вашему бизнесу?
+              Hoku — ваш секретарь, который не берет выходных
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground md:text-xl">
-              Реальные преимущества для владельцев теннисных кортов
+              Каждый звонок обработан, каждая встреча записана.
+              Никаких пропусков, ошибок и человеческого фактора.
             </p>
           </div>
 
           {/* Benefits Grid */}
-          <div className="grid gap-6 md:grid-cols-2 lg:gap-8 max-w-5xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
-              </Card>
-            ))}
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-4 max-w-7xl mx-auto">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <Card key={index} className="px-6 py-12 flex flex-col items-center justify-center text-center bg-surface-3">
+                  <div className="mb-3 bg-black rounded-lg p-1.5">
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                  {benefit.description && (
+                    <p className="text-muted-foreground text-xs leading-relaxed">{benefit.description}</p>
+                  )}
+                </Card>
+              );
+            })}
           </div>
         </div>
       </div>
