@@ -5,6 +5,7 @@ import { LandingMechanism } from "@/widgets/landing-mechanism";
 import { LandingProof } from "@/widgets/landing-proof";
 import { SubmitLandingForm } from "@/features/submit-landing-form";
 import { LandingSection } from "@/shared/ui/landing-section";
+import { SectionSpacer } from "@/shared/ui/section-spacer";
 
 export function LandingPage() {
   return (
@@ -14,6 +15,9 @@ export function LandingPage() {
 
       {/* 2. Showcase - показывает вау-момент */}
       <LandingShowcase />
+
+      {/* Диагональный разделитель */}
+      <SectionSpacer />
 
       {/* 3. Value - объясняет пользу */}
       <LandingValue />
