@@ -31,12 +31,12 @@
     --primary-foreground: var(--text-primary);
     --secondary: 241 243 245;
     --secondary-foreground: var(--text-primary);
-    --muted: 241 243 245;
-    --muted-foreground: var(--text-secondary);
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 229 231 235;
-    --input: 229 231 235;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
     --ring: 44 100% 49%;
 
     /* Chart colors */
