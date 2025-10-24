@@ -11,7 +11,7 @@ export function LandingPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* 1. Hero - вызывает интерес */}
-      <HeroSection segment="beauty" />
+      <HeroSection />
 
       {/* 2. Showcase - показывает вау-момент */}
       <LandingShowcase />
