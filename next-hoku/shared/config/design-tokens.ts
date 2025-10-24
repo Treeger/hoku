@@ -5,18 +5,6 @@
  * Используется для динамического изменения --hero-bg-tint в зависимости от сегмента.
  */
 
-export type Segment = "beauty" | "barbershop" | "clinic" | "spa" | "freelance";
-
-/**
- * Маппинг сегментов на HSL-значения фонового цвета hero-секции
- */
-export const SEGMENT_COLORS: Record<Segment, string> = {
-  beauty: "253 236 235",      // #FDECEB - тёплый розово-бежевый
-  barbershop: "245 242 238",  // #F5F2EE - нейтральный серо-бежевый
-  clinic: "233 244 251",      // #E9F4FB - голубовато-белый
-  spa: "238 247 238",         // #EEF7EE - мягкий зелёный
-  freelance: "255 249 229",   // #FFF9E5 - кремовый
-} as const;
 
 /**
  * Базовые цветовые токены (HSL без hsl())
@@ -46,10 +34,3 @@ export const SHADOWS = {
   medium: "0 1px 2px rgba(0, 0, 0, 0.08), 0 -1px 1px rgba(255, 255, 255, 0.7) inset",
   large: "0 4px 12px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(255, 255, 255, 0.8) inset",
 } as const;
-
-/**
- * Helper для получения CSS-переменной цвета сегмента
- */
-export function getSegmentColor(segment: Segment): string {
-  return SEGMENT_COLORS[segment];
-}

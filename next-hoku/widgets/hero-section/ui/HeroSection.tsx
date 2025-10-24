@@ -1,27 +1,14 @@
 "use client";
 
-import type { Segment } from "@/shared/config/design-tokens";
-import { getSegmentConfig } from "../model/segment-config";
 import { HeroIllustration } from "./HeroIllustration";
 import { Button } from "@/components/ui/button";
 import { LandingSection } from "@/shared/ui/landing-section";
 
-type HeroSectionProps = {
-  segment?: Segment;
-};
 
-/**
- * Hero-секция с динамическим фоновым цветом и иллюстрацией по сегменту
- */
-export function HeroSection({ segment = "beauty" }: HeroSectionProps) {
-  const config = getSegmentConfig(segment);
-
+export function HeroSection() {
   return (
     <LandingSection
       className="relative"
-      style={{
-        background: `hsl(${config.color})`,
-      }}
     >
       <div className="container mx-auto px-4 py-16 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
