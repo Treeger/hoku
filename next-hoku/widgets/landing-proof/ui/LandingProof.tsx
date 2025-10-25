@@ -10,10 +10,10 @@ export function LandingProof() {
           {/* Header */}
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Что говорят владельцы кортов
+              Что говорят владельцы бизнеса
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground md:text-xl">
-              Реальные отзывы от тех, кто уже использует AI секретаря
+              Реальные отзывы от тех, кто уже доверил звонки Hoku
             </p>
           </div>
 
