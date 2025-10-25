@@ -81,16 +81,12 @@ export function SubmitLandingForm() {
           )}
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="company">Название клуба (опционально)</Label>
-          <Input
-            id="company"
-            {...register("company")}
-            placeholder="Теннисный клуб 'Матч Поинт'"
-          />
-        </div>
-
-        <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+        <Button
+            type="submit"
+            size="lg"
+            disabled={isSubmitting}
+            className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-flat transition-all duration-200 hover:scale-105 w-full"
+        >
           {isSubmitting ? "Отправка..." : "Получить демо"}
         </Button>
 
