@@ -11,6 +11,7 @@ import { landingFormSchema, type LandingFormInput } from "../model/schemas";
 
 export function SubmitLandingForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -21,10 +22,29 @@ export function SubmitLandingForm() {
   });
 
   const onSubmit = async (data: LandingFormInput) => {
-    // Пока без реального backend - просто симулируем отправку
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Form data:", data);
-    setIsSubmitted(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mvgvpzbq", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Ошибка при отправке формы");
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Произошла ошибка при отправке. Попробуйте позже."
+      );
+    }
   };
 
   if (isSubmitted) {
@@ -80,6 +100,12 @@ export function SubmitLandingForm() {
             <p className="text-sm text-red-500">{errors.phone.message}</p>
           )}
         </div>
+
+        {submitError && (
+          <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+            <p className="text-sm text-red-600">{submitError}</p>
+          </div>
+        )}
 
         <Button
             type="submit"
