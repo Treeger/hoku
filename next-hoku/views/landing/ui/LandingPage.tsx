@@ -1,4 +1,6 @@
 import { HeroSection } from "@/widgets/hero-section";
+import { LandingProblem } from "@/widgets/landing-problem";
+import { LandingSolution } from "@/widgets/landing-solution";
 import { LandingShowcase } from "@/widgets/landing-showcase";
 import { LandingValue } from "@/widgets/landing-value";
 import { LandingMechanism } from "@/widgets/landing-mechanism";
@@ -10,25 +12,22 @@ import { SectionSpacer } from "@/shared/ui/section-spacer";
 export function LandingPage() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* 1. Hero - вызывает интерес */}
       <HeroSection />
 
-      {/* 2. Showcase - показывает вау-момент */}
+      <LandingProblem />
+
+      <LandingSolution />
+
       <LandingShowcase />
 
-      {/* Диагональный разделитель */}
       <SectionSpacer />
 
-      {/* 3. Value - объясняет пользу */}
       <LandingValue />
 
-      {/* 4. Mechanism - снимает непонимание */}
       <LandingMechanism />
 
-      {/* 5. Proof - добавляет доверия */}
       <LandingProof />
 
-      {/* 6. Form - превращает интерес в заявку */}
       <LandingSection background="surface-3">
         <div className="container px-4 md:px-6">
           <div className="space-y-8">
